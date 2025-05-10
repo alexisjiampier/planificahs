@@ -1,1 +1,848 @@
-<html><body><h1>Hola mundo</h1></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finanzas Fáciles Perú</title>
+    <style>
+        :root {
+            --primary: #2a9d8f;
+            --secondary: #e9c46a;
+            --accent: #e76f51;
+            --dark: #264653;
+            --light: #f8f9fa;
+            --success: #06d6a0;
+            --warning: #ffb703;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 20px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        .auth-buttons button {
+            padding: 8px 15px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .login-btn {
+            background-color: transparent;
+            color: white;
+            border: 1px solid white !important;
+        }
+        
+        .login-btn:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        .register-btn {
+            background-color: var(--secondary);
+            color: var(--dark);
+        }
+        
+        .register-btn:hover {
+            background-color: #ddb957;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(38, 70, 83, 0.8), rgba(38, 70, 83, 0.9)), url('/api/placeholder/1200/600') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .cta-btn:hover {
+            background-color: #e05d3b;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            display: inline-block;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .learning-modules {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .module-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .module-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .module-img {
+            height: 200px;
+            width: 100%;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+        }
+        
+        .module-content {
+            padding: 1.5rem;
+        }
+        
+        .module-content h3 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .module-content p {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+        
+        .module-btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .module-btn:hover {
+            background-color: #218a7e;
+        }
+        
+        .tools-section {
+            background-color: var(--light);
+            padding: 3rem 0;
+            margin: 0 -1rem;
+        }
+        
+        .tools-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .tool-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tool-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .tool-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .tool-card p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .tool-btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 6px 12px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .tool-btn:hover {
+            background-color: #218a7e;
+        }
+        
+        .community-section {
+            padding: 4rem 0;
+        }
+        
+        .community-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .community-image {
+            flex: 1;
+            min-width: 300px;
+            height: 350px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .community-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .community-text h2 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        
+        .community-text p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+        
+        .testimonials {
+            padding: 4rem 0;
+            background-color: var(--light);
+            margin: 0 -1rem;
+        }
+        
+        .testimonial-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .testimonial-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .testimonial-text {
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            color: #555;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 0.25rem;
+            color: var(--dark);
+        }
+        
+        .author-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .cta-section {
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .cta-section p {
+            margin-bottom: 2rem;
+            color: #555;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 1rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+        }
+        
+        .modal-header {
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-form input,
+        .modal-form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .modal-form button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .modal-form button:hover {
+            background-color: #218a7e;
+        }
+        
+        .modal-form p {
+            margin-top: 1rem;
+            color: #666;
+            text-align: center;
+        }
+        
+        .modal-form a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .modal-form a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: block;
+                font-size: 1.5rem;
+                color: white;
+                cursor: pointer;
+                background: none;
+                border: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <span class="logo-icon">💰</span>
+                <span>Finanzas Fáciles Perú</span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#aprender">Aprende</a></li>
+                <li><a href="#herramientas">Herramientas</a></li>
+                <li><a href="#comunidad">Comunidad</a></li>
+                <li><a href="#asesorias">Asesorías</a></li>
+            </ul>
+            
+            <div class="auth-buttons">
+                <button class="login-btn" onclick="openModal('login-modal')">Iniciar Sesión</button>
+                <button class="register-btn" onclick="openModal('register-modal')">Registrarse</button>
+            </div>
+        </nav>
+    </header>
+    
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>¡Aprende a manejar tu dinero de manera fácil y práctica!</h1>
+            <p>Educación financiera para jóvenes peruanos, ¡sin complicaciones y adaptada a tu realidad!</p>
+            <a href="#aprender" class="cta-btn">Comenzar Ahora</a>
+        </div>
+    </section>
+    
+    <main>
+        <section class="features-section">
+            <div class="section-title">
+                <h2>¿Por qué Finanzas Fáciles Perú?</h2>
+                <p>Diseñado especialmente para jóvenes peruanos que quieren aprender a manejar su dinero de forma sencilla</p>
+            </div>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <span class="feature-icon">🎓</span>
+                    <h3>Aprende a tu ritmo</h3>
+                    <p>Contenido organizado en módulos cortos y fáciles de entender, con lenguaje sencillo y ejemplos reales de la vida peruana.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">🧮</span>
+                    <h3>Herramientas prácticas</h3>
+                    <p>Calculadoras, presupuestos y simuladores que puedes usar de inmediato para organizar tus finanzas personales.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">👥</span>
+                    <h3>Comunidad activa</h3>
+                    <p>Conéctate con otros jóvenes, comparte experiencias y aprende juntos en un espacio colaborativo.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="aprender">
+            <div class="section-title">
+                <h2>Módulos de Aprendizaje</h2>
+                <p>Aprende lo básico para manejar tu dinero con inteligencia y hacer crecer tu emprendimiento</p>
+            </div>
+            
+            <div class="learning-modules">
+                <div class="module-card">
+                    <div class="module-img">Imagen del Módulo</div>
+                    <div class="module-content">
+                        <h3>Cómo calcular precios para tu negocio</h3>
+                        <p>Aprende a fijar precios que cubran tus costos y te dejen una ganancia justa.</p>
+                        <a href="#" class="module-btn">Ver Módulo</a>
+                    </div>
+                </div>
+                
+                <div class="module-card">
+                    <div class="module-img">Imagen del Módulo</div>
+                    <div class="module-content">
+                        <h3>Separando finanzas personales y de negocio</h3>
+                        <p>Descubre cómo organizar tu dinero para no mezclar tus gastos personales con los de tu emprendimiento.</p>
+                        <a href="#" class="module-btn">Ver Módulo</a>
+                    </div>
+                </div>
+                
+                <div class="module-card">
+                    <div class="module-img">Imagen del Módulo</div>
+                    <div class="module-content">
+                        <h3>Errores financieros que debes evitar</h3>
+                        <p>Conoce los errores más comunes que cometen los emprendedores y cómo evitarlos.</p>
+                        <a href="#" class="module-btn">Ver Módulo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="tools-section" id="herramientas">
+            <div class="tools-content">
+                <div class="section-title">
+                    <h2>Herramientas Prácticas</h2>
+                    <p>Recursos útiles que te ayudarán a poner en práctica lo aprendido</p>
+                </div>
+                
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon">📊</div>
+                        <h3>Calculadora de Precios</h3>
+                        <p>Calcula el precio ideal para tus productos o servicios.</p>
+                        <a href="#" class="tool-btn">Usar Herramienta</a>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">💹</div>
+                        <h3>Planificador de Presupuesto</h3>
+                        <p>Organiza tus ingresos y gastos de forma sencilla.</p>
+                        <a href="#" class="tool-btn">Usar Herramienta</a>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">📝</div>
+                        <h3>Control de Ingresos y Gastos</h3>
+                        <p>Lleva un registro detallado de tu dinero.</p>
+                        <a href="#" class="tool-btn">Usar Herramienta</a>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">🎯</div>
+                        <h3>Simulador de Ganancia</h3>
+                        <p>Calcula cuánto ganarás según tus ventas y costos.</p>
+                        <a href="#" class="tool-btn">Usar Herramienta</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="community-section" id="comunidad">
+            <div class="community-content">
+                <div class="community-image">Imagen de la Comunidad</div>
+                <div class="community-text">
+                    <h2>Únete a nuestra comunidad</h2>
+                    <p>Conéctate con otros jóvenes emprendedores, comparte experiencias, haz preguntas y crece junto a personas que, como tú, están aprendiendo a manejar sus finanzas.</p>
+                    <p>Participa en nuestros retos semanales, como "Registra tus gastos por 7 días" o "Crea tu primer presupuesto", y ve cómo poco a poco mejoras tus hábitos financieros.</p>
+                    <a href="#" class="cta-btn">Unirme a la Comunidad</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="asesorias">
+            <div class="section-title">
+                <h2>Asesorías en Vivo</h2>
+                <p>Sesiones grupales con especialistas para resolver tus dudas específicas</p>
+            </div>
+            
+            <div class="learning-modules">
+                <div class="module-card">
+                    <div class="module-img">Imagen de la Asesoría</div>
+                    <div class="module-content">
+                        <h3>Cómo iniciar tu emprendimiento con poco capital</h3>
+                        <p>Jueves 15 de Mayo - 7:00 PM</p>
+                        <p>Con: Carlos Mendoza, emprendedor con 10 años de experiencia</p>
+                        <a href="#" class="module-btn">Reservar mi lugar</a>
+                    </div>
+                </div>
+                
+                <div class="module-card">
+                    <div class="module-img">Imagen de la Asesoría</div>
+                    <div class="module-content">
+                        <h3>Primeros pasos para formalizar tu negocio</h3>
+                        <p>Sábado 17 de Mayo - 10:00 AM</p>
+                        <p>Con: María Quispe, consultora empresarial</p>
+                        <a href="#" class="module-btn">Reservar mi lugar</a>
+                    </div>
+                </div>
+                
+                <div class="module-card">
+                    <div class="module-img">Imagen de la Asesoría</div>
+                    <div class="module-content">
+                        <h3>Tips para vender más en redes sociales</h3>
+                        <p>Martes 20 de Mayo - 6:00 PM</p>
+                        <p>Con: Javier López, especialista en marketing digital</p>
+                        <a href="#" class="module-btn">Reservar mi lugar</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="testimonials">
+            <div class="testimonial-content">
+                <div class="section-title">
+                    <h2>Lo que dicen nuestros usuarios</h2>
+                    <p>Experiencias de jóvenes como tú que ya están mejorando sus finanzas</p>
+                </div>
+                
+                <div class="testimonial-cards">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Antes no sabía cómo calcular el precio para mis productos y terminaba perdiendo dinero. Gracias a los videos de Finanzas Fáciles, ahora tengo clara la fórmula y mi negocio está creciendo."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MR</div>
+                            <div class="author-info">
+                                <h4>María Rodríguez</h4>
+                                <p>Emprendedora, 23 años</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Lo mejor son las asesorías en vivo. Pude hacer preguntas específicas sobre mi situación y me dieron consejos prácticos que pude aplicar de inmediato en mi pequeño negocio de comida."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">JL</div>
+                            <div class="author-info">
+                                <h4>Juan López</h4>
+                                <p>Estudiante y emprendedor, 20 años</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Las calculadoras y plantillas me han ayudado muchísimo. Ahora puedo organizar mejor mis ingresos y separar el dinero de mi negocio del personal. ¡Recomendado al 100%!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">CP</div>
+                            <div class="author-info">
+                                <h4>Carla Pérez</h4>
+                                <p>Emprendedora, 25 años</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <h2>¿Listo para mejorar tus finanzas?</h2>
+            <p>Únete a Finanzas Fáciles Perú hoy mismo y comienza a aprender de forma sencilla y práctica cómo manejar tu dinero y hacer crecer tu emprendimiento.</p>
+            <a href="#" class="cta-btn" onclick="openModal('register-modal')">Registrarme Gratis</a>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Finanzas Fáciles Perú</h3>
+                <p>Educación financiera accesible para jóvenes peruanos emprendedores
